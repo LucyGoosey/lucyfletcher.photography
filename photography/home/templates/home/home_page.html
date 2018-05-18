@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--Content Starts-->
+<div class="main-container">
+
+    <!--kenburns Wrapper Starts-->
+    <!--Use "controllerbottom" class to set the direction controllers at the bottom-->
+    <div class="kenburns-show controllerbottom" data-slide-interval="5000" data-slide-autoplay="true" data-slider-directions="true" data-dots-navigation="true">
+
+        <!--Slides Wrapper Starts-->
+        <div class="slides">
+
+            {% for image in page.gallery_images.all %}
+            <!--Items Starts-->
+            <div class="item">
+                <div class="imgwrap" data-backgroundimage="/media/original_images/{{ image.image.filename }}"></div>
+
+                <!--Caption Wrapper Starts-->
+                <!-- Use classes "black" and "white" to change the color of caption -->
+                <div class="caption white">
+                    <a href="#">
+                        <h6>{{ image.image.title }}</h6>
+                        <p>{{ image.caption }}</p>
+                    </a>
+                </div>
+                <!--Caption Wrapper End-->
+            </div>
+            {% endfor %}
+
+        </div>
+        <!--Slides Wrapper Starts-->
+
+    </div>
+    <!--kenburns Wrapper End-->
+
+</div>
+<!--Content End-->
+{% endblock %}
