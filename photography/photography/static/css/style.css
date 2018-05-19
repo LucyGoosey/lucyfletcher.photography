@@ -3562,7 +3562,7 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
 
 .filter,.isotope-filter{
     display:block;
-    padding:24px 10px 24px 10px;
+    padding:80px 10px 24px 10px;
 }
 .filter ul,.isotope-filter ul{
     margin-bottom:0;

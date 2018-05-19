@@ -12,7 +12,7 @@
             </li>
             {% for tag in page.tags.all %}
             <li>
-                <a href="#" data-filter="filter-{{ tag }}">{{ tag }}</a>
+                <a href="#" data-filter="filter-{{ tag }}">{{ tag|upper }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -31,7 +31,7 @@
 
                 <div class="caption-wrapper">
                     <div class="tittle-info">
-                        <a href="{{ photo.get_url }}"><h4>{{ photo.title }}</h4></a>
+                        <a href="{{ photo.get_url }}"><h4>{{ photo.title|upper }}</h4></a>
                         <p class="category">
                             {% for tag in image.tags.names %}
                                 <span href="#">{{ tag|upper }}</span>
