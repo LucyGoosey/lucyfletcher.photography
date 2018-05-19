@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--Contant Starts-->
+<div class="main-container">
+
+    <!--Filter Wrapper Starts-->
+    <div class="isotope-filter">
+        <ul>
+            <li>
+                <a class="active" href="#" data-filter="*">All</a>
+            </li>
+            <li>
+                <a href="#" data-filter="filter-indoor">Indoor</a>
+            </li>
+            <li>
+                <a href="#" data-filter="filter-outdoor">Outdoor</a>
+            </li>
+            <li>
+                <a href="#" data-filter="filter-creative">Creative</a>
+            </li>
+            <li>
+                <a href="#" data-filter="filter-fashion">Fashion</a>
+            </li>
+        </ul>
+    </div>
+    <!--Filter Wrapper End-->
+
+    <!--Grid Wrapper Starts-->
+    <div class="grid portfolio-two" data-items-columns="4" data-items-gap="10">
+
+        {% for photo_page in page.photo_pages.all %}
+        <div class="item filter-creative filter-outdoor">
+            <div class="project">
+
+                <div class="image-wrapper" data-backgroundimage="/media/original_images/{{ photo_page.photo_page.photo.first.image.filename }}"></div>
+
+                <div class="caption-wrapper">
+                    <div class="tittle-info">
+                        <a href="{{ photo_page.photo_page.get_url }}"><h4>{{ photo_page.photo_page.title }}</h4></a>
+                        <p class="category"><span href="#">CREATIVE</span><span href="#">OUTDOOR</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <!--Grid Wrapper End-->
+
+</div>
+<!--Content End-->
+{% endblock %}

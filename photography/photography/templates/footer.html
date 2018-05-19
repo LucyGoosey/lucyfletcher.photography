@@ -5,15 +5,21 @@
     <a href="#" class="ex-btn full-page pe-7s-expand1"></a>
 
     <!--Copyrights-->
-    <p class="copyrights pull-left">© FUNGUS PHOTOGRAPHY | ALL RIGHTS RESERVED</p>
+    <p class="copyrights pull-left">© LUCY FLETCHER PHOTOGRAPHY | ALL RIGHTS RESERVED</p>
 
     <!--Social Links-->
     <div class="social-link-wrapper pull-right">
-        <a href=""><i class="fa fa-facebook"></i></a>
-        <a href=""><i class="fa fa-twitter"></i></a>
-        <a href=""><i class="fa fa-instagram"></i></a>
-        <a href=""><i class="fa fa-pinterest-p"></i></a>
-        <a href=""><i class="fa fa-flickr"></i></a>
+        {% if settings.core.SocialMediaSettings.fivehundredpx %}
+        <a href="{{ settings.core.SocialMediaSettings.fivehundredpx }}"><i class="fa fa-500px"></i></a>
+        {% endif %}
+
+        {% if settings.core.SocialMediaSettings.facebook %}
+        <a href="{{ settings.core.SocialMediaSettings.facebook }}"><i class="fa fa-facebook"></i></a>
+        {% endif %}
+
+        {% if settings.core.SocialMediaSettings.instagram %}
+        <a href="{{ settings.core.SocialMediaSettings.instagram }}"><i class="fa fa-instagram"></i></a>
+        {% endif %}
     </div>
 
     <!--Fullscreen button-->

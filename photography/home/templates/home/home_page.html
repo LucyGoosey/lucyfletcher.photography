@@ -6,22 +6,22 @@
 
     <!--kenburns Wrapper Starts-->
     <!--Use "controllerbottom" class to set the direction controllers at the bottom-->
-    <div class="kenburns-show controllerbottom" data-slide-interval="5000" data-slide-autoplay="true" data-slider-directions="true" data-dots-navigation="true">
+    <div class="kenburns-show controllerbottom" data-slide-interval="20000" data-slide-autoplay="true" data-slider-directions="true" data-dots-navigation="true">
 
         <!--Slides Wrapper Starts-->
         <div class="slides">
 
-            {% for image in page.gallery_images.all %}
+            {% for homepage_model in page.featured_photos.all %}
             <!--Items Starts-->
             <div class="item">
-                <div class="imgwrap" data-backgroundimage="/media/original_images/{{ image.image.filename }}"></div>
+                <div class="imgwrap" data-backgroundimage="/media/original_images/{{ homepage_model.photo_page.photo.first.image.filename }}"></div>
 
                 <!--Caption Wrapper Starts-->
                 <!-- Use classes "black" and "white" to change the color of caption -->
                 <div class="caption white">
                     <a href="#">
-                        <h6>{{ image.image.title }}</h6>
-                        <p>{{ image.caption }}</p>
+                        <h6>{{ homepage_model.photo_page.title }}</h6>
+                        <p>{{ homepage_model.photo_page.photo.first.caption }}</p>
                     </a>
                 </div>
                 <!--Caption Wrapper End-->

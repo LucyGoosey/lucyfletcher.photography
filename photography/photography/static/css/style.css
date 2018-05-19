@@ -2943,10 +2943,13 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
     position:absolute;
     bottom:50px;
     bottom: 56px;
-    width:60%;
+    width:auto;
     display: inline-block;
     left: 7%;
     opacity:0;
+    background-color:#0505059F;
+    padding-left:5px;
+    padding-right:5px;
 }
 .flex-active-slide .caption,
 .kenburns-show .active .item .caption

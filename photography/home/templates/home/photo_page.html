@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--Slideshow Wrapper Starts-->
+<div class="slider-show flexslider" data-slide-interval="6000" data-slide-speed="600" data-slide-animation="fade" data-slider-directions="false" data-slider-playpause="false" data-dots-navigation="false">
+
+    <!--Slides Items Wrapper Starts-->
+    <ul class="slides">
+
+        <!--Items starts-->
+        <li data-backgroundimage="/media/original_images/{{ page.photo.first.image.filename }}">
+
+            <!--Caption Wrapper Starts-->
+            <!-- Use classes "black" and "white" to change the color of caption -->
+            <div class="caption white">
+                <a href="#">
+                    <h6>{{ page.title }}</h6>
+                    <p>{{ page.photo.first.caption }}</p>
+                </a>
+            </div>
+            <!--Caption Wrapper End-->
+
+        </li>
+
+    </ul>
+    <!--Slides Items Wrapper End-->
+
+</div>
+<!--Slideshow Wrapper End-->
+
+{% endblock %}
