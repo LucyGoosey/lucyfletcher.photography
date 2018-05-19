@@ -4,22 +4,12 @@ from modelcluster.fields import ParentalKey
 
 from taggit.models import Tag
 
-from django.contrib.contenttypes.models import ContentType
-
 from wagtail.core.models import Page, Orderable
-from wagtail.images.models import Image
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 
-class HomePage(Page):
-    content_panels = Page.content_panels + [
-        InlinePanel('featured_photos', label='Photos'),
-    ]
-
-
-class HomePageModel(Orderable):
-    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='featured_photos')
+class InlineImage(Orderable):
     photo_page = models.ForeignKey(
         'PhotoPage',
         on_delete=models.SET_NULL,
@@ -29,6 +19,12 @@ class HomePageModel(Orderable):
 
     panels = [
         PageChooserPanel('photo_page')
+    ]
+
+
+class HomePage(Page):
+    content_panels = Page.content_panels + [
+        InlinePanel('featured_photos', label='Photos'),
     ]
 
 
@@ -40,18 +36,49 @@ class GalleryPage(Page):
     tags = Tag.objects.all()
 
 
-class GalleryModel(Orderable):
-    page = ParentalKey(GalleryPage, on_delete=models.CASCADE, related_name='photo_pages')
-    photo_page = models.ForeignKey(
-        'PhotoPage',
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name='+'
+class AboutPage(Page):
+    name = models.TextField(
+        verbose_name="Your Name",
+        max_length=160,
+        blank=False
+    )
+    descriptor = models.TextField(
+        max_length=160,
+        verbose_name='Your "job" title',
+        blank=False
+    )
+    summary = models.TextField(
+        verbose_name="Write a short bit about yourself",
+        blank=False
+    )
+    location = models.TextField(
+        verbose_name="Where are you based?",
+        blank=True
+    )
+    email = models.TextField(
+        blank=True
     )
 
-    panels = [
-        PageChooserPanel('photo_page')
+    content_panels = Page.content_panels + [
+        FieldPanel('name'),
+        FieldPanel('descriptor'),
+        FieldPanel('summary'),
+        FieldPanel('location'),
+        FieldPanel('email'),
+        InlinePanel('personal_photo', label="Your Picture", max_num=1)
     ]
+
+
+class HomePageModel(InlineImage):
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='featured_photos')
+
+
+class GalleryModel(InlineImage):
+    page = ParentalKey(GalleryPage, on_delete=models.CASCADE, related_name='photo_pages')
+
+
+class AboutImage(InlineImage):
+    page = ParentalKey(AboutPage, on_delete=models.CASCADE, related_name='personal_photo')
 
 
 class PhotoPage(Page):

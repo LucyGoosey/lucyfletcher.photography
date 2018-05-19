@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- <div class="page-content-wrapper short-width clearfix"> -->
+
+    <div class="col-sm-6 off-bg about-page">
+
+        <div class="vp-center-outter">
+
+            <div class="vp-center-inner text-center pt50 pl50 pr50 pb50">
+
+                <!-- Text -->
+                <h4>{{ page.name }}</h4>
+                <p>{{ page.descriptor|upper }}</p>
+                <i class="hor-line"></i>
+                <p>{{ page.summary }}</p>
+
+                {% if page.location %}
+                    <p class="addrs"><b>LOCATION :</b>{{ page.location }}</p>
+                {% endif %}
+                {% if page.email %}
+                    <p class="mail"><b>EMAIL :</b><a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-sm-6 equal-height fullscreen-height hidden-xs about-image" data-backgroundimage="/media/original_images/{{ page.personal_photo.first.photo_page.photo.first.image.filename }}"></div>
+
+<!-- </div> -->
+
+{% endblock %}

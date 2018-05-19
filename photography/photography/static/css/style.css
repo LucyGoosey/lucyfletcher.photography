@@ -5777,3 +5777,27 @@ p.four-oh-four-subtitle{
 .pb140{padding-bottom:140px;}
 .pb150{padding-bottom:150px;}
 .pb160{padding-bottom:160px;}
+
+.about-page{
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 50%;
+    height: 100%;
+}
+
+.about-image{
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 100%;
+}
+
+.hor-line{
+    width:35%;
+    height:3px;
+    background:#9e9e9e;
+    display:inline-block;
+    position:relative;
+    margin-bottom:10px;
+}
