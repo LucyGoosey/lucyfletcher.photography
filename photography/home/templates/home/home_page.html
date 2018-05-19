@@ -12,20 +12,24 @@
         <div class="slides">
 
             {% for homepage_model in page.featured_photos.all %}
+            {% with photo=homepage_model.photo_page.photo.first title=homepage_model.photo_page.title %}
             <!--Items Starts-->
             <div class="item">
-                <div class="imgwrap" data-backgroundimage="/media/original_images/{{ homepage_model.photo_page.photo.first.image.filename }}"></div>
+                <div class="imgwrap" data-backgroundimage="/media/original_images/{{ photo.image.filename }}"></div>
 
                 <!--Caption Wrapper Starts-->
                 <!-- Use classes "black" and "white" to change the color of caption -->
                 <div class="caption white">
                     <a href="#">
-                        <h6>{{ homepage_model.photo_page.title }}</h6>
-                        <p>{{ homepage_model.photo_page.photo.first.caption }}</p>
+                        <h6>{{ title }}</h6>
+                        {% if photo.caption %}
+                            <p>{{ photo.caption }}</p>
+                        {% endif %}
                     </a>
                 </div>
                 <!--Caption Wrapper End-->
             </div>
+            {% endwith %}
             {% endfor %}
 
         </div>

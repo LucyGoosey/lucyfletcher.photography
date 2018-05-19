@@ -1934,11 +1934,11 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
 }
 .kenburns-show .imgwrap,.gallery-kenburns .imgwrap,
 .gallery-wide.wide .item .zoom-hover .image-wrapper{
-    -webkit-transition: transform 8s linear;
-    -moz-transition: transform 8s linear;
-    -ms-transition: transform 8s linear;
-    -o-transition: transform 8s linear;
-    transition: transform 8s linear;
+    -webkit-transition: transform 30s linear;
+    -moz-transition: transform 30s linear;
+    -ms-transition: transform 30s linear;
+    -o-transition: transform 30s linear;
+    transition: transform 30s linear;
 }
 
 .flexslider .slides > li,.slides > li,
