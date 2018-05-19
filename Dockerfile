@@ -1,14 +1,16 @@
 FROM python:3.6
-LABEL maintainer="hello@wagtail.io"
+LABEL maintainer="LucyKFletcher@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_ENV dev
+
+WORKDIR /opt/app
 
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install -r /code/requirements.txt
 RUN pip install gunicorn
 
-COPY . /code/
+COPY ./photography /code/
 WORKDIR /code/
 
 RUN python manage.py migrate
