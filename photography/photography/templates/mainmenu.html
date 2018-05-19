@@ -1,0 +1,9 @@
+{% load menu_tags %}
+
+{% for menu in menu_items %}
+    <ul>
+        <li>
+            <a href="{{ menu.href }}">{{ menu.text|upper }}</a>
+        </li>
+    </ul>
+{% endfor %}
