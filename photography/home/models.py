@@ -2,7 +2,12 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 
+from taggit.models import Tag
+
+from django.contrib.contenttypes.models import ContentType
+
 from wagtail.core.models import Page, Orderable
+from wagtail.images.models import Image
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
@@ -31,6 +36,8 @@ class GalleryPage(Page):
     content_panels = Page.content_panels + [
         InlinePanel('photo_pages', label='Photos'),
     ]
+
+    tags = Tag.objects.all()
 
 
 class GalleryModel(Orderable):
