@@ -27,7 +27,5 @@ RUN mkdir /code/logs && \
     useradd wagtail && \
     chown -R wagtail /code
 
-# USER wagtail
-
 EXPOSE 80
 CMD /etc/init.d/nginx start && gunicorn --access-logfile - --workers 3 --bind 127.0.0.1:8000 --chdir /code/photography photography.wsgi:application
