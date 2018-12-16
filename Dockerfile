@@ -23,7 +23,7 @@ WORKDIR /code
 RUN mkdir /code/logs && \
     touch /code/logs/access.log /code/logs/error.log && \
     python manage.py collectstatic && \
-    python manage.py migrate && \
+    # python manage.py migrate && \
     useradd wagtail && \
     chown -R wagtail /code
 

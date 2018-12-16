@@ -7,4 +7,5 @@ services:
     environment:
       - SECRET_KEY=wlp0@mnr6z*#d%%0^mngtqwz03%u&^66%*qr)qk@)cu^-pn+ga
     volumes:
-      - ./photography/media:/photography/media
+      - ./photography/media:/code/media
+      - ./photography/db.sqlite3:/code/db.sqlite3
