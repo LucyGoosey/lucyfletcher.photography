@@ -6,3 +6,5 @@ services:
       - "80:80"
     environment:
       - SECRET_KEY=wlp0@mnr6z*#d%%0^mngtqwz03%u&^66%*qr)qk@)cu^-pn+ga
+    volumes:
+      - ./photography/media:/photography/media
