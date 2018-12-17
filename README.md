@@ -3,6 +3,8 @@ LucyFletcher.photography
 
 This is for my personal site hosted at LucyFletcher.photography
 
+All rights reserved.
+
 ## Set Up (because I am dumb and will forget how)
 
 ```bash
