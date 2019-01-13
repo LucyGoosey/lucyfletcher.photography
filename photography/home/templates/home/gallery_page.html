@@ -25,7 +25,7 @@
 
         {% for photo_page in page.photo_pages.all %}
         {% with photo=photo_page.photo_page photo_image=photo_page.photo_page.photo.first %}
-        <div class="item {% for tag in image.tags.all %}filter-{{ tag }} {% endfor %}">
+        <div class="item {% for tag in photo_image.tags.all %}filter-{{ tag }} {% endfor %}">
             <div class="project">
 
                 {% image photo_image.image width-400 as tmp_photo %}
