@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load wagtailimages_tags %}
 
 {% block content %}
 <!--Contant Starts-->
@@ -23,17 +24,18 @@
     <div class="grid portfolio-two" data-items-columns="4" data-items-gap="10">
 
         {% for photo_page in page.photo_pages.all %}
-        {% with photo=photo_page.photo_page image=photo_page.photo_page.photo.first.image %}
+        {% with photo=photo_page.photo_page photo_image=photo_page.photo_page.photo.first %}
         <div class="item {% for tag in image.tags.all %}filter-{{ tag }} {% endfor %}">
             <div class="project">
 
-                <div class="image-wrapper" data-backgroundimage="/media/original_images/{{ image.filename }}"></div>
+                {% image photo_image.image width-400 as tmp_photo %}
+                <div class="image-wrapper" data-backgroundimage="{{ tmp_photo.url }}"></div>
 
                 <div class="caption-wrapper">
                     <div class="tittle-info">
                         <a href="{{ photo.get_url }}"><h4>{{ photo.title|upper }}</h4></a>
                         <p class="category">
-                            {% for tag in image.tags.names %}
+                            {% for tag in photo_image.tags.names %}
                                 <span href="#">{{ tag|upper }}</span>
                             {% endfor %}
                         </p>
