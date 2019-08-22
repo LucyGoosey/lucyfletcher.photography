@@ -28,7 +28,7 @@
         <div class="item {% for tag in photo_image.image.tags.all %}filter-{{ tag }} {% endfor %}">
             <div class="project">
 
-                {% image photo_image.image width-400 as tmp_photo %}
+                {% image photo_image.image fill-400x400 as tmp_photo %}
                 <div class="image-wrapper" data-backgroundimage="{{ tmp_photo.url }}"></div>
 
                 <div class="caption-wrapper">
