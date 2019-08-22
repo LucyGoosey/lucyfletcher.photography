@@ -23,7 +23,7 @@
     <!--Grid Wrapper Starts-->
     <div class="grid portfolio-two" data-items-columns="4" data-items-gap="10">
 
-        {% for photo_page in page.photo_pages.all %}
+        {% for photo_page in page.photo_pages.all reversed %}
         {% with photo=photo_page.photo_page photo_image=photo_page.photo_page.photo.first %}
         <div class="item {% for tag in photo_image.image.tags.all %}filter-{{ tag }} {% endfor %}">
             <div class="project">
