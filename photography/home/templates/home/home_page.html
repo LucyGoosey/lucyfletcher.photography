@@ -22,7 +22,7 @@
                 <!--Caption Wrapper Starts-->
                 <!-- Use classes "black" and "white" to change the color of caption -->
                 <div class="caption white">
-                    <a href="#">
+                    <a href="{{ homepage_model.photo_page.get_url }}">
                         <h6>{{ title }}</h6>
                         {% if photo.caption %}
                             <p>{{ photo.caption }}</p>
